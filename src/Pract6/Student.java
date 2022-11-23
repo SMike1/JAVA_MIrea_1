@@ -15,15 +15,15 @@ class Student{
     }
 
     public void selectionSort(){
-        for (int i = 0; i < idNumber.length-1; i++){
-            int min_i = i;
-            for ( int j = i + 1; j < idNumber.length; j++){
-                if (idNumber[j] < idNumber[min_i])
-                    min_i = j;
+        int n = idNumber.length;
+        for (int i = 1; i < n; ++i) {
+            int key = idNumber[i];
+            int j = i - 1;
+            while (j >= 0 && idNumber[j] > key) {
+                idNumber[j + 1] = idNumber[j];
+                j = j - 1;
             }
-            int tmp = idNumber[min_i];
-            idNumber[min_i] = idNumber[i];
-            idNumber[i] = tmp;
+            idNumber[j + 1] = key;
         }
     }
 
